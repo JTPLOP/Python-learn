@@ -1,0 +1,8 @@
+APLICACION DE GESTION DE INMUEBLES
+
+Clases:
+
+main --> probar los metodos
+inmueble --> base 
+Piso --> Hija
+LocalComercial --> hija
