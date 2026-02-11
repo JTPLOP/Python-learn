@@ -2,7 +2,7 @@
 
 class Inmueble:
     def __init__(self, id, direccion, metros2, precMen, estado): #ATRIBUTOS
-        self.__id = id
+        self.__id=id
         self.__direccion=direccion
         self.__metros2= metros2
         self.__precMen= precMen
@@ -14,7 +14,7 @@ class Inmueble:
 
     @property
     def getid(self):
-        return self.id
+        return self.__id
     
     @property
     def getdireccion(self):
@@ -34,7 +34,7 @@ class Inmueble:
     
     # HACEMOS LOS SETTERS
 
-    @id.setter
+    @getid.setter
     def setid(self,id):
         self.__id=id
     
@@ -61,14 +61,14 @@ class Inmueble:
 
     def mostrarInformacion(self):
         print("Informacion del inmueble: ")
-        print(f"Id: {self.id}")
-        print(f"Direccion: {self.direccion}")
-        print(f"Metros cuadrados: {self.metros2}")
-        print(f"Precio mensual: {self.precMen}")
-        print(f"Alquilado: {self.estado}")
+        print(f"Id: {self.__id}")
+        print(f"Direccion: {self.__direccion}")
+        print(f"Metros cuadrados: {self.__metros2}")
+        print(f"Precio mensual: {self.__precMen}")
+        print(f"Alquilado: {self.__estado}")
 
     # METODO 
 
-    def calcularIngresos (self, impuesto, extAsc):
+    def calcularIngresos (self, impuesto, extAsc, extEscap):
         den = 100
-        return self.precMen + (self.precMen*impuesto/den) # NOS DEVUELVE LA BASE DE LO QUE PAGAREMOS
+        return self.__precMen - (self.__precMen*impuesto/den) # NOS DEVUELVE LA BASE DE LO QUE PAGAREMOS

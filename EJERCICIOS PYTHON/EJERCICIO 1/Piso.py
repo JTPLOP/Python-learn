@@ -35,6 +35,7 @@ class Piso(Inmueble):
     def setascensor(self,ascensor):
         self.__ascensor=ascensor
 
+
     # METODOS 
 
     #REESCRITURA DE METODOS
@@ -42,14 +43,14 @@ class Piso(Inmueble):
     def mostrarInformacion(self):
         super().mostrarInformacion() # TRAEMOS CON SUPER LO PROVENIENTE DE LA CLASE MADRE
         print("Extras: ")
-        print(f"Numero Habitaciones: {self.numHab} ")
-        print(f"Numero Bathrooms: {self.numBath} ")
-        print(f"Ascensor: {self.ascensor}")
+        print(f"Numero Habitaciones: {self.__numHab} ")
+        print(f"Numero Bathrooms: {self.__numBath} ")
+        print(f"Ascensor: {self.__ascensor}")
 
     def calcularIngresos(self, impuesto, extAsc, extEscap): #PARA ESTE EJERCICIO VAMOS A AGREGAR QUE SI TIENE ASCENSOR PAGA UN PORCENTAJE EXTRA
         den=100
 
-        if (self.ascensor):
+        if (self.__ascensor):
             return super().calcularIngresos(impuesto, extAsc, extEscap) - (super().calcularIngresos(impuesto, extAsc, extEscap)*extAsc/den)
         else:
-            return super().calcularIngresos(impuesto, extAsc, extEscap)
+            return super().calcularIngresos(impuesto, extAsc, extEscap)+10

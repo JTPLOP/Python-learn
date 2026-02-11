@@ -3,16 +3,34 @@ from Piso import *
 from LocalComercial import *
 
 class Gestion:
-    def __init__(self, lista): # En el enunciado nos piden trabajar con diccionarios
+    def __init__(self, lista, clientes): # En el enunciado nos piden trabajar con diccionarios
 
-        Inmueble.__lista= [] # AQUI AGREGAMOS TODOS LOS INMUEBLES INDIFERENTE DE LOS CLIENTES
+        self.__lista= [] # AQUI AGREGAMOS TODOS LOS INMUEBLES INDIFERENTE DE LOS CLIENTES
         self.__clientes={} #AQUI PODRIAMOS METER LOS DATOS DE LOS CLIENTES Y EL ID DE SU INMUEBLE
 
     def buscarID(self,idBuscado):
+        for i, inmueble in enumerate(self.__lista):
+            if Inmueble.getid == idBuscado:
+                return i
+        return -1
+    #AGREGAR INMUEBLE A LA LISTA
+
+    def agregarInmu (self, Inmueble):
+
+        self.__lista.append(Inmueble)
+    
+    def agregarCliente (self, numClientes, nombre, telefono):
+         self.__clientes[numClientes] = {
+            "Nombre": nombre,
+            "Telefono": telefono,
+            "Inmuebles": [Inmueble[2].getid]
+        }
+    
+    def calcularGanancias(self,idBuscado, impuesto, extAsc, extEscap):
+        idx = self.buscarID(idBuscado)
         
-        i = 0
-        encontrado = False
-        while (i < len(lista) and not encontrado):
-            if (idBuscado == Inmueble.getid):
-                pass
+        return self.__lista[idx].calcularIngresos(impuesto, extAsc, extEscap)
+
+
+
 

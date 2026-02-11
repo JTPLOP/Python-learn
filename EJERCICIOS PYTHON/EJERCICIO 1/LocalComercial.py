@@ -32,15 +32,16 @@ class LocalComercial(Inmueble):
     def mostrarInformacion(self):
         super().mostrarInformacion()
         print("Extras: ")
-        print(f"Tipo de negocio: {self.tipoNegoc}")
-        print(f"Escaparate: {self.escaparate}")
+        print(f"Tipo de negocio: {self.__tipoNegoc}")
+        print(f"Escaparate: {self.__escaparate}")
 
     def calcularIngresos(self, impuesto, extAsc, extEscap): #AGREGAMOS UN EXTRA SI NO TIENE ESCAPARATE
-        den = 100
-        
-        if (not self.escaparate): 
-            super().calcularIngresos(impuesto, extAsc, extEscap) - (super().calcularIngresos(impuesto, extAsc, extEscap)*extEscap/den)
-        else: 
-            super().calcularIngresos(impuesto, extAsc, extEscap)
+        den=100
+
+        if (self.__escaparate):
+            return super().calcularIngresos(impuesto, extAsc, extEscap) - (super().calcularIngresos(impuesto, extAsc, extEscap)*extEscap/den)
+        else:
+            devuelto = (super().calcularIngresos(impuesto, extAsc, extEscap) + 100)
+            return devuelto  
 
     
